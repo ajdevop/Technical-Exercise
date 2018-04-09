@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache ZooKeeper
+After=network.target
+ConditionPathExists={{ ZOOKEEPER_HOME }}/conf/zoo.cfg
+ConditionPathExists={{ ZOOKEEPER_HOME }}/conf/log4j.properties
+
+[Service]
+Environment="ZOOCFGDIR={{ZOOKEEPER_HOME}}/conf"
+SyslogIdentifier=zookeeper
+WorkingDirectory={{ ZOOKEEPER_HOME }}
+ExecStart={{ ZOOKEEPER_HOME }}/bin/zkServer.sh start-foreground
+Restart=on-failure
+RestartSec=20
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

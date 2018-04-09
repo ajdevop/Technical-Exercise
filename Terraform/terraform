@@ -1,0 +1,12 @@
+Host proxy
+   hostname = 
+   User ubuntu
+   IdentityFile ./admin_california.pem
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+Host 10.0.10.*
+   User ubuntu
+   IdentityFile ./admin_california.pem
+   ProxyCommand ssh -i ./admin_california.pem ubuntu@54.183.210.143 -W %h:%p
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null

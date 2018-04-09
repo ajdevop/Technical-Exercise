@@ -1,0 +1,5 @@
+#!/bin/bash
+apt-get update
+apt-get install -y python
+apt-get install -y curl
+echo "PUBLIC KEY" >> /home/ubuntu/.ssh/authorized_keys

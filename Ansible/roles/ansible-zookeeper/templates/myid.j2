@@ -1,0 +1,1 @@
+{% for host in groups['tag_group_name_ZookeeperServers'] %}{% if hostvars[host]['ansible_nodename'] == ansible_hostname %}{{loop.index}}{% endif %}{% endfor %}

@@ -1,0 +1,22 @@
+---
+apt_cache_timeout: 3600
+zookeeper:
+  version: "3.4.11"
+  mirror: "http://apache.rediris.es"
+  download_dir: "/tmp"
+  install_dir: "/usr/local"
+  data_dir: "/usr/local/var/run/zookeeper/data"
+  log_dir: "/var/log/zookeeper"
+  server_properties: "zoo.cfg"
+tick_time: 2000
+init_limit: 10
+client_port: 2181
+sync_limit: 5
+myid: 1
+autopurge_snapRetainCount: 3
+autopurge_purgeInterval: 1
+servers: ""
+# Zookeeper service commands
+ZOOKEEPER_HOME: "{{zookeeper.install_dir}}/zookeeper"
+ZOOKEEPER_START_COMMAND: "nohup /etc/init.d/zookeeper start &"
+ZOOKEEPER_STOP_COMMAND: "{{ ZOOKEEPER_HOME }}/bin/zkServer.sh stop"
